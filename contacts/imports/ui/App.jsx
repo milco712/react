@@ -12,13 +12,14 @@ export const App = () => {
       if(error) {
         alert(error);  
       }
-      setContacts(result);
+      setContacts(result); // 비동기
       nameRef.current.value = "";
       phoneRef.current.value = "";
+      nameRef.current.focus();
     });
   }
 
-  useEffect(()=>{
+  useEffect(()=>{ // 비동기
     fetchAll();
   }, []);
   
@@ -31,28 +32,25 @@ export const App = () => {
       Meteor.call("contacts.insert", name, phone, (error, result)=> {
         if (error) {
           console.log("Error:", error);
-        } else {
-          console.log("Result:", result);
-          fetchAll();
-          // const newContact = {
-          //   _id: result,
-          //   name: name,
-          //   phone: phone
-          // }
-          // setContacts([...contacts, newContact]);
         }
+        console.log("Result:", result);
+        fetchAll();
+        // const newContact = {
+        //   _id: result,
+        //   name: name,
+        //   phone: phone
+        // }
+        // setContacts([...contacts, newContact]);
       });
     }
   };
 
   const removeContact = (contactId) => {
-    Meteor.call("contacts.remove", contactId, (error, result) => {
+    Meteor.call("contacts.remove", contactId, (error) => {
       if(error){
         console.log("Error:", error);
-      } else {
-        console.log("Removed: ",result);
-        fetchAll();
       }
+      fetchAll();
     })
   };
 

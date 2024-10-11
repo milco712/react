@@ -14,8 +14,6 @@ Meteor.methods({
   },
 
   "contacts.remove"(contactId){
-    return Contacts.remove({
-      contactId
-    });
+    return Contacts.remove(contactId);
   },
 });
