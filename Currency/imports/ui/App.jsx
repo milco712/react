@@ -35,9 +35,10 @@ export const App = () => {
         <button type="submit">변환</button>
       </form>
 
-      {loading && <p>환율 정보 가져오는 중...</p>}
-      {!loading && <p>변환된 금액: {convertedAmount} KRW</p>}
-      
+      {/* {loading && <p>환율 정보 가져오는 중...</p>}
+      {!loading && <p>변환된 금액: {convertedAmount} KRW</p>} */}
+      {loading ? (<p>환율 정보 가져오는 중...</p>) : (<p>변환된 금액: {convertedAmount} KRW</p>)}
+
     </div>
   );
 } 
