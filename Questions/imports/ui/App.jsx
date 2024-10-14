@@ -40,11 +40,12 @@ export const App = () => {
         <p>당신의 점수는 {score}입니다.</p>
       ) : (
         <>
-          <p>{questions[currentQuestionIdx].question}</p>
-          {questions[currentQuestionIdx].options.map((opt)=> (
+          <p>{questions[currentQuestionIdx]?.question}</p>
+          {questions[currentQuestionIdx]?.options.map((opt)=> (
             <button onClick={()=> handleAnswerClink(opt)} key={opt}>{opt}</button>
           ))}
         </>
+        // '?'는 데이터가 있으면 실행하고 없으면 무시
       )}
     </div>
   );
