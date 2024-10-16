@@ -26,9 +26,14 @@ export const App = () => {
   // 구매 금액
   useEffect(() => {
     let total = 0;
-    for (let i = 0; i < pbooks.length; i++) {
-      total += parseFloat(pbooks[i].price);
-    }
+    // for (let i = 0; i < pbooks.length; i++) {
+    //   total += parseFloat(pbooks[i].price);
+    // }
+
+    pbooks.forEach((pb)=>{
+      total += parseFloat(pb.price);
+    });
+
     setPurchasePrice(total);
   }, [pbooks]);
 
