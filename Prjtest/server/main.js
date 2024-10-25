@@ -38,7 +38,7 @@ const initialData = [
     modifiedAt: new Date(),
     title: "정경화",
     secTitle: "",
-    secContent:,
+    secContent:
       "한국의 바이올리니스트. 여성 바이올리니스트로서, 동양인 클래식 연주자로서 전례가 없는 국제적 인지도와 활동 영역을 일군 선구자적 인물이며 세계적인 바이올린의 여제 및 대거장",
     tags: ["기타", "락", "밴드", "ac/dc", "deeppurple"],
     likesCount: 0,
