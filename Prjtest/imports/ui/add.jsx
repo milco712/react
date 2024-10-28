@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Posts } from "../api/collections";
 
 export const AddPost = () => {
+  const [isPrivate, setIsPrivate] = useState(false);
   const titleRef = useRef(null);
   const secTitRef = useRef(null);
   const secContRef = useRef(null);
@@ -25,7 +26,7 @@ export const AddPost = () => {
         tags: tags.split(","),
         likesCount: 0,
         isArchive: false,
-        isPublic: true,
+        isPrivate,
       });
     }
   };
@@ -44,6 +45,16 @@ export const AddPost = () => {
         </div>
         <div>
           <input type="text" ref={tagRef} placeholder="tags" />
+        </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isPrivate}
+              onChange={() => setIsPrivate(!isPrivate)}
+            />
+            비공개
+          </label>
         </div>
         <button type="submit">Save</button>
       </form>

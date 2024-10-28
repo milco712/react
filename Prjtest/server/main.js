@@ -1,10 +1,10 @@
 import { Posts } from "../imports/api/collections";
 
 Meteor.methods({
-  "post.detail"(id){
-    return Posts.findOne({_id: id});
-  }
-})
+  "post.detail"(id) {
+    return Posts.findOne({ _id: id });
+  },
+});
 
 const initialData = [
   {
@@ -17,7 +17,7 @@ const initialData = [
     tags: ["밴드", "영국", "해체", "갤러거", "노엘", "리암"],
     likesCount: 0,
     isArchive: false,
-    isPublic: true,
+    isPrivate: false,
   },
   {
     authorId: "user01",
@@ -30,7 +30,7 @@ const initialData = [
     tags: ["만화", "우라사와나오키", "텐마켄조", "요한", "니나"],
     likesCount: 0,
     isArchive: false,
-    isPublic: true,
+    isPrivate: false,
   },
   {
     authorId: "user01",
@@ -43,7 +43,7 @@ const initialData = [
     tags: ["바이올리니스트", "클래식", "연주자"],
     likesCount: 0,
     isArchive: false,
-    isPublic: true,
+    isPrivate: true,
   },
 ];
 
