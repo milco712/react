@@ -1,14 +1,14 @@
 import { Posts } from "../imports/api/collections";
 
-// Meteor.methods({
-//   "posts.fetch"() {
-//     return Posts.find({}, { sort: { modifiedAt: -1 } }).fetch();
-//   },
-// });
+Meteor.methods({
+  "post.detail"(id){
+    return Posts.findOne({_id: id});
+  }
+})
 
 const initialData = [
   {
-    authorId: "test01",
+    authorId: "user01",
     createdAt: new Date(),
     modifiedAt: new Date(),
     title: "Oasis",
@@ -20,7 +20,7 @@ const initialData = [
     isPublic: true,
   },
   {
-    authorId: "test01",
+    authorId: "user01",
     createdAt: new Date(),
     modifiedAt: new Date(),
     title: "몬스터",
@@ -33,21 +33,21 @@ const initialData = [
     isPublic: true,
   },
   {
-    authorId: "test01",
+    authorId: "user01",
     createdAt: new Date(),
     modifiedAt: new Date(),
     title: "정경화",
-    secTitle: "",
+    secTitle: "fasdfd",
     secContent:
       "한국의 바이올리니스트. 여성 바이올리니스트로서, 동양인 클래식 연주자로서 전례가 없는 국제적 인지도와 활동 영역을 일군 선구자적 인물이며 세계적인 바이올린의 여제 및 대거장",
-    tags: ["기타", "락", "밴드", "ac/dc", "deeppurple"],
+    tags: ["바이올리니스트", "클래식", "연주자"],
     likesCount: 0,
     isArchive: false,
     isPublic: true,
   },
 ];
 
-Posts.remove({});
+// Posts.remove({});
 
 if (Posts.find().count() === 0) {
   initialData.forEach((data) => {
@@ -56,6 +56,8 @@ if (Posts.find().count() === 0) {
       createdAt: data.createdAt,
       modifiedAt: data.modifiedAt,
       title: data.title,
+      secTitle: data.secTitle,
+      secContent: data.secContent,
       tags: data.tags,
       likesCount: data.likesCount,
       isArchive: data.isArchive,

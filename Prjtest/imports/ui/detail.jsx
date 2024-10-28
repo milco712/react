@@ -1,16 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
-import { Posts } from "../api/collections";
-
 
 export const Detail = () => {
-
+  const [detail, setDetail] = useState(null);
   const { id } = useParams();
+
+  const getDetail = (id) => {
+    Meteor.call("post.detail", id, (err, rslt) => {
+      if ( err ) {
+        console.error("Error getting detail", err);
+      }
+      setDetail(rslt);
+    });
+  }
+
+  useEffect(() => {
+    getDetail(id);
+  }, [id]);
+
   return (
     <>
       <div>
-        <h2>상세 페이지</h2>
-        <p>아이템 ID: {id}</p>
+        <h1>{detail.title}</h1>
+        <div>
+          <span>{detail.authorId}</span>
+          <span>{detail.modifiedAt.toLocaleDateString()}</span>
+        </div>
       </div>
     </>
   );

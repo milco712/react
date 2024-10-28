@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Posts } from "../api/collections";
 
-export const Insert = () => {
+export const AddPost = () => {
   const titleRef = useRef(null);
   const secTitRef = useRef(null);
   const secContRef = useRef(null);

@@ -11,15 +11,18 @@ export const List = () => {
 
   return (
     <div>
+      <div>
+        <span>총 {list.length} 건</span>
+        <Link to="/add">Add Post</Link>
+      </div>
       <ul>
-        {list.map((item) => (
-          <li key={item._id}>
-            <Link to={`/detail/${item._id}`}>{item.title}</Link>
-
-            <div>
-              <div>{item.tags.map((tag) => "#" + tag + " ")}</div>
-              <div>마지막 수정: {item.modifiedAt.toLocaleDateString()}</div>
-            </div>
+        {list.map(post => (
+          <li key={post._id}>
+            <Link to={`/detail/${post._id}`}>
+              <div>{post.title}</div>
+              <div>{post.tags.map((tag) => "#" + tag + " ")}</div>
+              <div>마지막 수정: {post.modifiedAt.toLocaleDateString()}</div>
+            </Link>
           </li>
         ))}
       </ul>

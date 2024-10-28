@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f026f6ab-64cc-4d99-ad65-ab26dc7703af" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/Prjtest/imports/ui/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Prjtest/imports/ui/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prjtest/imports/ui/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Prjtest/imports/ui/detail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prjtest/imports/ui/insert.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prjtest/imports/ui/list.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Prjtest/imports/ui/list.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prjtest/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Prjtest/server/main.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2o1CYQ46NEHwKNxllz6ZHfSu7oY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/크루아상"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+</project>
