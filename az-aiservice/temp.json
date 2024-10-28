@@ -1,0 +1,18 @@
+{
+  "kind": "Conversation",
+  "analysisInput": {
+    "conversationItem": {
+      "id": "PARTICIPANT_ID_HERE",
+      "text": "YOUR_QUERY_HERE",
+      "modality": "text",
+      "language": "QUERY_LANGUAGE_HERE",
+      "participantId": "PARTICIPANT_ID_HERE"
+    }
+  },
+  "parameters": {
+    "projectName": "home_automation",
+    "verbose": true,
+    "deploymentName": "home_auto",
+    "stringIndexType": "TextElement_V8"
+  }
+}

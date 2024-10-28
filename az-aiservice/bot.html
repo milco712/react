@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot Web Chat</title>
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+</head>
+<body>
+  <div id="webchat" role="main"></div>
+  <script>
+    // Direct Line Secret
+    const secret = '0aGwtde3PEc.gR3b_kkL4LPgL5f_PrfASQ4H4mye676AkBQej-9ohU8';
+
+    // Web Chat initialize
+    window.WebChat.renderWebChat (
+      {
+        directLine: window.WebChat.createDirectLine({ secret }),
+      },
+      document.getElementById('webchat')
+    );
+  </script>
+</body>
+</html>
