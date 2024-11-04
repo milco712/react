@@ -23,3 +23,4 @@ react-meteor-data       # React higher-order component for reactively tracking M
 autopublish
 insecure
 ostrio:files
+accounts-password
