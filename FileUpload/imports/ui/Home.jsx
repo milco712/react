@@ -1,41 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Files } from "../api/collections";
 
-export const Home = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+export default () => {;
+
+
+  const [selectdFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
-  const hanbleFileChange = (e) => {
+
+  const handleFileChange = (e) => {
     const file = e.currentTarget.files[0];
-    console.log(file);
-    setSelectedFile(file);
-    setPreviewUrl(URL.createObjectURL(file));
-  };
+    setSelectedFile(file); // 파일 정보 저장
+    const url = URL.createObjectURL(file) // 파일 임시 url 생성
+    setPreviewUrl(url);
+  }
+
+  const cancleFile = () => {
+    setPreviewUrl(null);
+  }
 
   const handleFileUpload = () => {
     const rslt = Files.insert({
-      file: selectedFile,
-    });
+      file: selectdFile
+    })
+
     if (rslt) {
-      console.log("uploaded");
-      setSelectedFile(null);
+      console.log("Success");
       setPreviewUrl(null);
     } else {
       console.log("error");
     }
-  };
+
+  }
+
   return (
-    <>
+    <div>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleFileUpload}>저장</button>
       <div>
-        <input type="file" onChange={hanbleFileChange} />
-        <button onClick={handleFileUpload}>Upload</button>
+        {previewUrl ? 
         <div>
-          {previewUrl ? (
-            <img src={previewUrl} alt="" />
-          ) : (
-            <p>이미지를 선택해주세요</p>
-          )}
+          <img src={previewUrl} alt="" /> 
+          <button onClick={cancleFile}>선택 취소</button>
         </div>
+        : 
+        <sapn>이미지를 선택해주세요</sapn>}
       </div>
-    </>
+    </div>
+    // <>
+    //   <div>
+    //     <input type="file" onChange={hanbleFileChange} />
+    //     <button onClick={handleFileUpload}>Upload</button>
+    //     <div>
+    //       {previewUrl ? (
+    //         <img src={previewUrl} alt="" />
+    //       ) : (
+    //         <p>이미지를 선택해주세요</p>
+    //       )}
+    //     </div>
+    //   </div>
+    // </>
   );
 };
