@@ -1,11 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Files } from "../api/collections";
 
 export default () => {;
 
-
   const [selectdFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const refName = useRef(null);
+  const refPw = useRef(null);
+
+  const handleLogin = () => {
+    const username = refName.current.value;
+    const password = refPw.current.value;
+    Meteor.loginWithPassword(username, password);
+  }
+
+  const handleLogout = () => {
+    Meteor.logout();
+  }
 
   const handleFileChange = (e) => {
     const file = e.currentTarget.files[0];
@@ -22,18 +33,21 @@ export default () => {;
     const rslt = Files.insert({
       file: selectdFile
     })
-
     if (rslt) {
       console.log("Success");
       setPreviewUrl(null);
     } else {
       console.log("error");
     }
-
   }
 
+  
+
   return (
-    <div>
+    <div>{
+      Meteor.user() ? (
+      <div>
+        <div><button onClick={handleLogout}>Logout</button></div>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleFileUpload}>저장</button>
       <div>
@@ -45,19 +59,13 @@ export default () => {;
         : 
         <sapn>이미지를 선택해주세요</sapn>}
       </div>
+      </div>) : (
+      <div>
+        Username: <input type="text" ref={refName} />
+        Password: <input type="text" ref={refPw} />
+        <button onClick={handleLogin}>Login</button>
+      </div>
+    )}
     </div>
-    // <>
-    //   <div>
-    //     <input type="file" onChange={hanbleFileChange} />
-    //     <button onClick={handleFileUpload}>Upload</button>
-    //     <div>
-    //       {previewUrl ? (
-    //         <img src={previewUrl} alt="" />
-    //       ) : (
-    //         <p>이미지를 선택해주세요</p>
-    //       )}
-    //     </div>
-    //   </div>
-    // </>
   );
 };
