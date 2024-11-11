@@ -1,22 +1,25 @@
 import React from "react";
 import { useTracker } from "meteor/react-meteor-data";
 import { Files } from "../api/collections";
-import { useParams } from "react-router-dom";
 
-export const List = () => {
+export default () => {
   useTracker(() => {
     return [Files.find().fetch()];
   });
 
   return (
     <div>
-      {Files.find().fetch().map((file) => {
-        return (
-          <li>
-            <img src={file.findOne(file._id).link()} alt="" />
-          </li>
-        );
-      })}
+      <ul>
+        {Files.find()
+          .fetch()
+          .map((file) => {
+            return (
+              <li key={file._id}>
+                <img src={Files.findOne(file._id).link()} alt="" />
+              </li>
+            );
+          })}
+      </ul>
     </div>
   );
 };
